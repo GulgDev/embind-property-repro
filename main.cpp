@@ -18,7 +18,7 @@ public:
     }
 
     void setThing(Thing* thing) {
-        thing = thing;
+        this->thing = thing;
     }
 };
 
