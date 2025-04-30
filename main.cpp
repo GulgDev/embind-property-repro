@@ -13,7 +13,7 @@ class MyClass {
 public:
     Thing *thing;
 
-    Thing* getThing() {
+    Thing* getThing() const {
         return thing;
     }
 
@@ -28,7 +28,7 @@ EMSCRIPTEN_BINDINGS(Example) {
         .property("value", &Thing::value);
 
     class_<MyClass>("MyClass")
-        .property("thing", // error: implicit instantiation of undefined template
+        .property("thing", // error: Implicitly binding raw pointers is illegal.
                   &MyClass::getThing,
                   &MyClass::setThing,
                   allow_raw_pointers(),
